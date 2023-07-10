@@ -1,0 +1,24 @@
+03_에러 페이지 처리.txt
+
+# web.xml에 다음과 같이 에러페이지를 등록할 수 있다
+
+	<!--  404에러 처리 등록 -->
+		<error-page>
+			<erro-code>404</erro-code>
+			<location>/error/notfound</location>
+		</error-page>
+		
+	- 해당 에러코드 발생시 포워드 처리가 아니라 리다이렉트 처리이므로
+	  컨트롤러에서 별도 처리가 필요하다
+	  
+# 에러 처리 컨트롤러
+
+    @RequestMapping("/error")
+	@Controller
+	public class ErrorController {
+	
+	@GetMapping("/notfound")
+		void notFound() {		
+		}
+	}
+   

@@ -1,0 +1,45 @@
+02_JSON.txt
+
+# JSON
+
+  - JavaScript Object Notation
+  - 언제든지 자바스크립트 오브젝트로 변환할 수 있는 문자열 형식
+  - 다양한 언어들의 객체로 변환하기도 편리하기 때문에 
+    객체들의 공용어로 활용되고 있다
+  - 언어에 종속외어 있지 않은 공통 규격
+  
+
+# 자바에서 JSON 활용하기
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+
+# JSONParser
+
+ - JSON 형식 문자열을 JSONObject로 변환하는 기능을 가진 클래스
+ - 문자열로 전달하거나 Reader를 전달하여 사용할 수 있다
+ 
+# JSONObject 
+ - 자바의 Map처럼 사용할 수 있는 객체 
+ - 해당 객체에 값들을 추가한 후에 
+   .toJSONString()을 호출하여 JSON 형식의 문자열을 얻을 수 있다
+ - 배열을 값으로 추가할 때는 List(or JSONArray)로 추가하면 된다
+ - 자바의 기본 배열은 값으로 사용할 수 없다
+ - 객체를 값으로 추가할 때는 Map(or JSONObject)으로 추가하면 된다
+
+ 
+# JSON VS Javascript Object의 차이점
+
+ - Javascript Object는 name에 ""를 생략할 수 있지만 JSON은 반드시 써야한다
+ - Javascript Object는 문자열에 값 또는 key에 ''를 쓸 수 있지만 JSON은 ""만 써야한다
+ - JSON은 문자열 형식의 이름이고 Javascript Object는 자바스크립트의 인스턴스이다
+ 
+# 활용
+
+ - RestController에서 데이터를 applicaiton/json 형식으로 응답할 때 사용한다
+ - JSON 형식의 문자열을 받은 웹 페이지에서 해당 값을 Javascript Object로 변환하여
+   페이지 구성에 활용할 수 있다
+ - 요청시 JSON 형식으로 데이터를 보내 DB에 반영하는 것도 가능하다 
+ 

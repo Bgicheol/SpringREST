@@ -1,0 +1,56 @@
+01_REST API.txt
+
+# REST 
+
+ - HTTP URI로 해당 자원을 식별하고
+   HTTP method로 해당 자원에 대한 CRUD를 구분하여 자원만 응답하는 방식
+ - HTML 뷰 페이지가 아닌 자원만 응답하기 떄문에 웹브라우저가 아닌 프로그램에서도
+   서버를 활용할 수 있다는 장점이 있다 
+ - Create, Insert (POST method) POST: /employee - 새 사원을 추가한다
+ - Read, Select (Get method)    GET: /employee/105 - 105번 사원을 추가한다
+ - Update (Put method)          PUT: /employee/183 - 183번 사원을 수정한다
+ - Delete (DELETE method)       DELETE: /employee/170 - 170번 사원을 삭제한다
+ 
+
+# Spring REST 
+ 
+ - @RestController : 해당 클래스가 RestController임을 표시
+ - @ResponseBody : 해당 메서드가 뷰 퍼이지 대신 데이터를 응답한다는 것을 표시
+ 				   (일반 컨트롤러의 메서드에 붙여서 REST 방식 메서드로 변경함)
+ - @RequestBody : 요청에 실려온 데이터를 바인딩해주는 어노테이션
+ - @PathVariable : 요청 URI의 일부분을 변수의 값으로 활용할 수 있다
+ 				   ( 일반 컨트롤러에서도 사용 가능)
+
+ 				   
+# @RestController
+
+ - 일반 컨트롤러와 다르게 다음 뷰를 가리키는 대신 데이터를 응답한다
+ - 컨트롤러 내부 메서드의 리턴 타입은 뷰를 찾아가는 방식이 아니라
+   사용자에게 응답할 데이터의 다입을 의미한다
+ - 주로 JSON 또는 XML 형식으로 응답하게 된다
+ 
+# jackson-databind + jackson-dataformaat-xml
+
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.15.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.dataformat</groupId>
+		    <artifactId>jackson-dataformat-xml</artifactId>
+		    <version>2.15.2</version>
+		</dependency>
+		
+	- @RestController에서 자바빈 객체(dto)를 리턴하며ㅑㅑㄴ
+	  알아서 JSON(또는 XML) 형식으로 변환해 응답해주는 라이브러리
+ 
+ 
+# ResponseEntity 
+
+  - 컨트롤러 메서드의 리턴 타입을 ResponseEntity로 설정하면 
+    개발자가 직접 생성한 응답객체를 리턴할 수 있다
+  - 개발자가 직접 HTTP 상태 코드, 컨텐츠 타입(MediaType), 내영(body)를 설정하여
+    원하는 응답을 만들어서 리턴한다
