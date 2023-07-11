@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.Employee;
+import dto.EmployeeDTO;
 import lombok.extern.log4j.Log4j;
 @RequestMapping("/restful")
 @RestController
@@ -32,7 +32,7 @@ public class RestSampleController {
 	
 	}@GetMapping(value="/value3", produces="application/json; charset=UTF-8")
 	public String value3() {
-		Employee emp = new Employee();
+		EmployeeDTO emp = new EmployeeDTO();
 
 		emp.setFirst_name("steven");
 		emp.setLast_name("king");
@@ -48,8 +48,8 @@ public class RestSampleController {
 	}		
 	
 	@GetMapping(value = "/employee/json", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Employee emp1() {
-		Employee e = new Employee();
+	public EmployeeDTO emp1() {
+		EmployeeDTO e = new EmployeeDTO();
 			
 		e.setFirst_name("철수");
 		e.setLast_name("김");
@@ -59,8 +59,8 @@ public class RestSampleController {
 	}
 	
 	@GetMapping(value = "/employee/xml", produces = MediaType.APPLICATION_XML_VALUE)
-	public Employee emp2() {
-		Employee e = new Employee();
+	public EmployeeDTO emp2() {
+		EmployeeDTO e = new EmployeeDTO();
 			
 		e.setFirst_name("철수");
 		e.setLast_name("김");
