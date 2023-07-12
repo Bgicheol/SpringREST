@@ -27,3 +27,21 @@
  - readyState 3 : 응답에 대한 처리를 시작했을 때
  - readyState 4 : 응답에 대한 처리가 모두 끝났을 떄
  
+# xhttp.send(body)
+
+ - GET방식을 제외한 나머지 방식은 send()시에 데이터를 실어보낼 수 있다
+ - 주로 JSON 형식 문자열을 생성하여 보내낟
+   (JSON.stringfy(obj) 메서드를 사용)
+ - JSON 형식 데이터를 보낼 때는 보내는 데이터의 타입이 'application/json'임을 알려줘야 한다
+   xhttp.setRequestHeader('content-type','')
+   
+# xhttp.status
+
+ - 서버에서 응답한 상태코드에 따른 로직을 작성할 때 사용한다
+ - 서버에서는 ResponseEntity로 직접 상태코드를 설정하여 응답을 보낼 수 있다
+ 
+ if (xhttp.readyState == 4 && xhttp.status == 200) {
+ 	// Ajax 응답의 처리가 끝났고, 상태코드가 200(ok)일 때에 대한 처리
+ } else if (xhttp.readyState == 4 && xhttp.status == 400) {
+ 	// Ajax 응답의 처리가 끝났고, 상태코드가 400(bad request)일 때에 대한 처리
+ }

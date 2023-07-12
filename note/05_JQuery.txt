@@ -1,0 +1,13 @@
+05_JQuery.txt
+
+# JQuery
+
+ - 자바스크립트를 좀 더 짧고 효율적으로 사용하고자 하는 라이브러리
+ - document.querySelector() => $('#id')
+ - element.addEventListener('click') => element.on('click')
+ 
+# JQuery CDN
+
+ - https://releases.jquery.com/
+ - JQuery는 해당 라이브러리를 불러온 시점에서 아래쪽에만 적용되기 때문에 맨 위에 위치해햐 한다
+   (주로 <head>에 넣는다)

@@ -36,13 +36,13 @@ public class EmployeeController{
 	
 	
 	// @ResponseBody : @Controller 내부에서 REST 방식으로 응답할 때 사용한다
-	@ResponseBody
-	@GetMapping(value="/roll", produces="application/json" )
-	public List(EmployeeDTO) roll(){
-		
-		return employeeMapper.getRandomEmplyees(10);
-		
-	}
+//	@ResponseBody
+//	@GetMapping(value="/roll", produces="application/json" )
+//	public List(EmployeeDTO) roll(){
+//		
+//		return employeeMapper.getRandomEmplyees(10);
+//		
+//	}
 	
 	@GetMapping("/add")
 	public String addPage() {
